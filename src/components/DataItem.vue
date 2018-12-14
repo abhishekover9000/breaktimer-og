@@ -1,10 +1,8 @@
 <template>
-<div>
-<b> {{title}}'s  Data Item </b>
-<div class="thing">
-  Something 
-</div>
-</div>
+  <div>
+    <b> {{ title }}'s Data Item </b>
+    <div class="thing">Something</div>
+  </div>
 </template>
 
 <script>
@@ -15,8 +13,8 @@ export default {
 </script>
 
 <style>
-  .thing {
-    border: 1px black solid;
-    margin: 2rem;
-  }
+.thing {
+  border: 1px black solid;
+  margin: 2rem;
+}
 </style>

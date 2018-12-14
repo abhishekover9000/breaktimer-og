@@ -1,17 +1,17 @@
 <template>
   <div id="app">
-  <navigation></navigation>
+    <navigation></navigation>
 
-    <img src="./assets/logo2.png" class="img">
-    <router-view/>
+    <img src="./assets/logo2.png" class="img" />
+    <router-view />
   </div>
 </template>
 
 <script>
-import navigation from './components/Navigation.vue';
+import navigation from './components/Navigation.vue'
 
 // add on ready function to load component
-// abstract music data to here 
+// abstract music data to here
 export default {
   name: 'App',
   components: {
@@ -31,6 +31,6 @@ export default {
 }
 
 .img {
-      width: 42rem;
+  width: 42rem;
 }
 </style>

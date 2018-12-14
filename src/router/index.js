@@ -22,17 +22,17 @@ export default new Router({
       component: Config
     },
     {
-      path:'/next-steps',
+      path: '/next-steps',
       name: 'Next Steps',
       component: NextSteps
     },
     {
       path: '/data-test',
       name: 'DataTest',
-      component: DataTest,
+      component: DataTest
     },
     {
-      path:'/data-test-dynamic',
+      path: '/data-test-dynamic',
       name: 'DynamicDataTest',
       component: DynamicDataTest
     },

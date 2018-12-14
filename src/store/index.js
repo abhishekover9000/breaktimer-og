@@ -16,42 +16,41 @@ const store = new Vuex.Store({
     config: {
       name: '',
       time: 0,
-      selectedSound: '',
+      selectedSound: ''
     },
     configs: [],
-    sounds: [],
+    sounds: []
   },
   mutations: {
     startTimer (state, payload) {
       // convert to seconds and store payload
-      state.started= true;
-      state.paused = false;
-      state.finished = false;
-      state.secondsLeft= payload.seconds;
-      state.musicPlaying = false;
-      state.reset = false;
+      state.started = true
+      state.paused = false
+      state.finished = false
+      state.secondsLeft = payload.seconds
+      state.musicPlaying = false
+      state.reset = false
     },
     pauseTimer (state) {
-      state.paused= true;
+      state.paused = true
     },
     resumeTimer (state) {
-      state.paused = false;
+      state.paused = false
     },
     resetTimer (state) {
-      console.log("calling reset")
-      state.started = false;
-      state.paused= false;
-      state.finished= true;
-      state.secondsLeft = 0;
-      state.musicPlaying = false;
-      state.reset = true;
+      console.log('calling reset')
+      state.started = false
+      state.paused = false
+      state.finished = true
+      state.secondsLeft = 0
+      state.musicPlaying = false
+      state.reset = true
     },
     decrement (state) {
-      console.log("calling decrement")
-      if (state.secondsLeft > 1 )
-        state.secondsLeft = state.secondsLeft-1
+      console.log('calling decrement')
+      if (state.secondsLeft > 1) state.secondsLeft = state.secondsLeft - 1
       else {
-        state.paused= false
+        state.paused = false
         state.finished = true
         state.secondsLeft = 0
         state.musicPlaying = true
@@ -63,7 +62,7 @@ const store = new Vuex.Store({
     setConfig (state, payload) {
       state.hasConfig = true
       // store in local storage
-      state.config = payload;
+      state.config = payload
     },
     loadConfig (state) {
       if (state.hasConfig) {
@@ -74,15 +73,15 @@ const store = new Vuex.Store({
     checkforConfig (state) {
       // check for localStorage object
       // if exists
-        // set config to true
-        // set config to that
+      // set config to true
+      // set config to that
     }
   },
   actions: {
-    startTimer (context, payload){
+    startTimer (context, payload) {
       context.commit('startTimer', payload)
     },
-    pauseTimer (context){
+    pauseTimer (context) {
       context.commit('pauseTimer')
     },
     resumeTimer (context) {
@@ -91,22 +90,22 @@ const store = new Vuex.Store({
     resetTimer (context) {
       context.commit('resetTimer')
     },
-    decrement (context){
+    decrement (context) {
       context.commit('decrement')
     },
-    addConfig (context){
+    addConfig (context) {
       context.commit('addConfig')
     },
-    stopMusic (context){
+    stopMusic (context) {
       context.commit('stopMusic')
     },
     setConfig (context, payload) {
       context.commit('setConfig', payload)
     },
-    loadConfig(context) {
+    loadConfig (context) {
       context.commit('loadConfig')
     }
   }
-});
+})
 
 export default store
