@@ -85,7 +85,7 @@ export default {
       } else {
         this.$store.dispatch('setConfig', {
           name: this.$data.name,
-          time: hours * 60 * 60 + min * 60 + sec
+          time: hours * 60 * 60 + min * 60 + sec * 1
         })
         this.$data.minutes = 0
         this.$data.seconds = 0

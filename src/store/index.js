@@ -6,6 +6,7 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
+    permissionsAdded: false,
     hasConfig: false,
     started: false,
     paused: false,
@@ -22,8 +23,9 @@ const store = new Vuex.Store({
     sounds: []
   },
   mutations: {
-    startTimer (state, payload) {
+    startTimer(state, payload) {
       // convert to seconds and store payload
+      state.permissionsAdded = true
       state.started = true
       state.paused = false
       state.finished = false
@@ -31,13 +33,13 @@ const store = new Vuex.Store({
       state.musicPlaying = false
       state.reset = false
     },
-    pauseTimer (state) {
+    pauseTimer(state) {
       state.paused = true
     },
-    resumeTimer (state) {
+    resumeTimer(state) {
       state.paused = false
     },
-    resetTimer (state) {
+    resetTimer(state) {
       console.log('calling reset')
       state.started = false
       state.paused = false
@@ -46,7 +48,7 @@ const store = new Vuex.Store({
       state.musicPlaying = false
       state.reset = true
     },
-    decrement (state) {
+    decrement(state) {
       console.log('calling decrement')
       if (state.secondsLeft > 1) state.secondsLeft = state.secondsLeft - 1
       else {
@@ -56,21 +58,21 @@ const store = new Vuex.Store({
         state.musicPlaying = true
       }
     },
-    stopMusic (state) {
+    stopMusic(state) {
       state.musicPlaying = false
     },
-    setConfig (state, payload) {
+    setConfig(state, payload) {
       state.hasConfig = true
       // store in local storage
       state.config = payload
     },
-    loadConfig (state) {
+    loadConfig(state) {
       if (state.hasConfig) {
         state.secondsLeft = state.config.time
       }
       // update
     },
-    checkforConfig (state) {
+    checkforConfig(state) {
       // check for localStorage object
       // if exists
       // set config to true
@@ -78,31 +80,31 @@ const store = new Vuex.Store({
     }
   },
   actions: {
-    startTimer (context, payload) {
+    startTimer(context, payload) {
       context.commit('startTimer', payload)
     },
-    pauseTimer (context) {
+    pauseTimer(context) {
       context.commit('pauseTimer')
     },
-    resumeTimer (context) {
+    resumeTimer(context) {
       context.commit('resumeTimer')
     },
-    resetTimer (context) {
+    resetTimer(context) {
       context.commit('resetTimer')
     },
-    decrement (context) {
+    decrement(context) {
       context.commit('decrement')
     },
-    addConfig (context) {
+    addConfig(context) {
       context.commit('addConfig')
     },
-    stopMusic (context) {
+    stopMusic(context) {
       context.commit('stopMusic')
     },
-    setConfig (context, payload) {
+    setConfig(context, payload) {
       context.commit('setConfig', payload)
     },
-    loadConfig (context) {
+    loadConfig(context) {
       context.commit('loadConfig')
     }
   }

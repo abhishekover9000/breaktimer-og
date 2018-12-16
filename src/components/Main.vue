@@ -85,9 +85,11 @@
 <script>
 import { mapActions } from 'vuex'
 import { Button, Input, Row, Col } from 'element-ui'
+import sendPush from '../mixins/sendPush'
 
 export default {
   name: 'Main',
+  mixins: [sendPush],
   props: ['title'],
   data() {
     return {
@@ -113,6 +115,11 @@ export default {
         }.bind(this),
         1000
       )
+    }
+
+    if (this.$store.state.finished) {
+      // send the api request
+      console.log('sending a request')
     }
 
     this.$store.state.musicPlaying && !this.$store.state.reset
@@ -156,6 +163,21 @@ export default {
       loadConfig: 'loadConfig'
     }),
     start: function() {
+      // set dispatch if neeeded
+      if (!this.$store.state.permissionsAdded) {
+        window.messaging
+          .requestPermission()
+          .then(() => {
+            console.log('subscribed successfully')
+            if (window.location.host.indexOf('push-notifications-fef03') > -1) {
+              this.getAndSendToken()
+            }
+          })
+          .catch(function(err) {
+            alert('Unable to get permission to notify: ' + err)
+          })
+      }
+
       const min = this.$data.minutes
       const sec = this.$data.seconds
       const hours = this.$data.hours
