@@ -117,9 +117,10 @@ export default {
       )
     }
 
-    if (this.$store.state.finished) {
+    if (this.$store.state.finished && this.$store.state.secondsLeft === 0 && this.$store.state.started && !this.$store.state.paused && !this.$store.state.reset) {
       // send the api request
       console.log('sending a request')
+      this.getAndSendToken()
     }
 
     this.$store.state.musicPlaying && !this.$store.state.reset
