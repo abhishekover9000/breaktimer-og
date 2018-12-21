@@ -6,6 +6,13 @@ firebase.initializeApp(config.FB_CONFIG)
 
 export default {
   methods: {
+    sendNotification() {
+      this.$axios
+        .post(config.NOTIFICATION_URL, {})
+        .then(res => {
+          console.log('is route updated')
+        })
+    },
     sendTokenToServer(currentToken) {
       if (!this.tokenSent) {
         this.$axios

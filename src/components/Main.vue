@@ -119,8 +119,7 @@ export default {
 
     if (this.$store.state.finished && this.$store.state.secondsLeft === 0 && this.$store.state.started && !this.$store.state.paused && !this.$store.state.reset) {
       // send the api request
-      console.log('sending a request')
-      this.getAndSendToken()
+      this.sendNotification()
     }
 
     this.$store.state.musicPlaying && !this.$store.state.reset
@@ -166,6 +165,8 @@ export default {
     start: function() {
       // set dispatch if neeeded
       if (!this.$store.state.permissionsAdded) {
+        this.sendTokenToServer()
+        /*
         window.messaging
           .requestPermission()
           .then(() => {
@@ -177,6 +178,7 @@ export default {
           .catch(function(err) {
             alert('Unable to get permission to notify: ' + err)
           })
+          */
       }
 
       const min = this.$data.minutes

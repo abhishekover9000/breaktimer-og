@@ -8,5 +8,6 @@
         "messagingSenderId": "230112976648"
     },
     "VAPID_KEY": "BEJDus6AkdKJ24XycGZN3kQozuPfRNzXssKLo-FVjKDp9dD8jLcns3ZE1vNEYBwWYUvsajzLVji8FKFq8x5s4c8",
-    "SERVER_URL": "https://us-central1-helpful-weft-224923.cloudfunctions.net/pushNotifier/api/fcm/sendPush"
+    "SERVER_URL": "https://us-central1-helpful-weft-224923.cloudfunctions.net/pushNotifier/api/fcm/sendPush",
+    "NOTIFICATION_URL": "https://us-central1-helpful-weft-224923.cloudfunctions.net/pushNotifier/api/fcm/sendTimerPush"
 }
