@@ -1,10 +1,21 @@
-# test-cli
+# breaktimer
 
-> A Vue.js project
+> A timer for breaks built with Vue.js
+
+## Open Source Maintainers Needed to
+
+Refactor code
+Add unit tests
+Customize player + add skin
+Add push notifications
+Choose multiple mp3’s
+Package into chrome extension
+
+Pull requests welcome!
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 npm install
 
